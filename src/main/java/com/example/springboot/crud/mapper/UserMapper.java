@@ -1,5 +1,8 @@
 package com.example.springboot.crud.mapper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 import com.example.springboot.crud.dto.User;
@@ -35,6 +38,21 @@ public class UserMapper {
 		}
 		
 		return user;		
+	}
+	
+	public List<User> mapDaosToUsers(List<UserDAO> daos) {
+		List<User> users = null;
+		
+		if (null != daos && !daos.isEmpty()) {
+			users = new ArrayList<User>();
+			
+			for (UserDAO dao : daos) {
+				User user = mapDaoToUser(dao);
+				users.add(user);
+			}
+		}
+		
+		return users;		
 	}
 	
 }

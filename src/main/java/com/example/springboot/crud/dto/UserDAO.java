@@ -1,5 +1,7 @@
 package com.example.springboot.crud.dto;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,8 +10,10 @@ import javax.persistence.Table;
 
 @Entity()
 @Table(name="user")
-public class UserDAO {
+public class UserDAO implements Serializable {
 	
+	private static final long serialVersionUID = 1894963737138868313L;
+
 	@Id
 	@Column(name="id")
 	@GeneratedValue
